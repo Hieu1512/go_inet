@@ -1,0 +1,53 @@
+{
+    "id": 1,
+    "key": "header",
+    "page_id": 1,
+    "metadata": {
+        "logo": {
+            "url": "link_image",
+            "alt": "alt"
+        },
+        "nav": [
+            {
+                "label": "Trang chủ",
+                "link": "/trang-chu"
+            },
+            {
+                "label": "Tin tức",
+                "link": "/tin-tuc"
+            }
+        ],
+        "button": [
+            {
+                "label":"Đăng nhập",
+                "link": "/dang-nhap",
+                "bg_color": "#ffffff"
+            }
+        ]
+    }
+}
+
+{
+    "id": 1,
+    "label": "Trang chủ",
+    "key": "home_page",
+    "link": "/"
+}
+
+type Page struct {
+    gorm.Model 
+    Label string 
+    Key string
+    Link string
+    Sessions []Session
+}
+
+type Session struct {
+    gorm.Model
+    Key string
+    PageId uint
+    Metadata json
+}
+
+http://localhost:3000?page=home_page
+
